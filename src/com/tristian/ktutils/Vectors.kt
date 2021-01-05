@@ -132,7 +132,7 @@ class Vec3d(var x: Double, var y: Double, var z: Double) {
         return this.x * other.x + this.y * other.y + this.z * other.z
     }
 }
-class Vec3f(var x: Double, var y: Double, var z: Double) {
+class Vec3f(var x: Float, var y: Float, var z: Float) {
 
 
     var length: Float =
@@ -164,35 +164,35 @@ class Vec3f(var x: Double, var y: Double, var z: Double) {
         return Vec3f(this.x * amt, this.y * amt, this.z * amt)
     }
 
-    operator fun timesAssign(amt: Double)  {
+    operator fun timesAssign(amt: Float)  {
         this.x *= amt
         this.y *= amt
         this.z *= amt
     }
 
-    operator fun plusAssign(other: Vec3d) {
+    operator fun plusAssign(other: Vec3f) {
         this.x += other.x
         this.y += other.y
         this.z += other.z
     }
 
-    operator fun minusAssign(other: Vec3d) {
+    operator fun minusAssign(other: Vec3f) {
         this.x -= other.x
         this.y -= other.y
         this.z -= other.z
     }
 
-    operator fun div(other: Vec3d) : Vec3d {
-        return Vec3d(this.x / other.x, this.y / other.y, this.z / other.z)
+    operator fun div(other: Vec3f) : Vec3f {
+        return Vec3f(this.x / other.x, this.y / other.y, this.z / other.z)
     }
 
-    operator fun divAssign(other: Vec3d) {
+    operator fun divAssign(other: Vec3f) {
         this.x /= other.x
         this.y /= other.y
         this.z /= other.z
     }
 
-    fun dot(other: Vec3d) : Double {
+    fun dot(other: Vec3f) : Float {
 
         return this.x * other.x + this.y * other.y + this.z * other.z
     }
