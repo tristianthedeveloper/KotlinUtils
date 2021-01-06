@@ -1,22 +1,26 @@
 package com.tristian.ktutils
 
 import kotlin.math.abs
+import kotlin.math.floor
 
 // extension utilities
 
 
 //# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # STRING EXTENSIONS # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+
+/**
+ * Times
+ *
+ * @param times to repeat
+ * @return A repeated string<br>
+ *
+ * EX: <code>"*".times(8) -> ********</code>
+ */
 fun String.times(times: Int): String {
     var newThis = this
     repeat(times) { newThis += this }
     return newThis
-}
-
-infix fun String.substringMatches(r: Regex): List<String> {
-    return r.findAll(this)
-            .map { it.value }
-            .toList()
 }
 
 
@@ -49,9 +53,23 @@ fun <T> Array<T>.shuffle() {
     }
 }
 
+/**
+ * Choose
+ *
+ * @return A random item from the array.
+ */
+fun <T> Array<T>.choose(): T {
+    return this[floor(Math.random() * size).toInt()]
+}
+
 
 //# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # NUMBER EXTENSIONS # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
+/**
+ * Pow
+ *
+ * @param amt
+ * @return An integer raised to the <b>amt</b> power
+ */
 fun Int.pow(amt: Int): Int {
     var new: Int = this
     repeat(amt) { new *= this }
@@ -59,7 +77,10 @@ fun Int.pow(amt: Int): Int {
 }
 
 /**
- * Add commas every 3rd number in number
+ * To pretty string
+ *
+ * @return A String with commas to look pretty
+ * 24354742 -> 24,354,742
  */
 fun Number.toPrettyString(): String {
     var str = this.toString()
@@ -72,5 +93,3 @@ fun Number.toPrettyString(): String {
     }
     return str2
 }
-
-
