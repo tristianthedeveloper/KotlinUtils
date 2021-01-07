@@ -1,7 +1,7 @@
 package com.tristian.ktutils
 
-import kotlin.math.abs
 import kotlin.math.floor
+
 
 // extension utilities
 
@@ -10,12 +10,11 @@ import kotlin.math.floor
 
 
 /**
- * Times
  *
  * @param times to repeat
- * @return A repeated string<br>
- *
- * EX: <code>"*".times(8) -> ********</code>
+ * @return A repeated string, consisting of the string this action was performed on,
+ * but repeated [times] amount of times
+ * EX: "*".times(8) -> ********
  */
 fun String.times(times: Int): String {
     var newThis = this
@@ -28,8 +27,7 @@ fun String.times(times: Int): String {
 
 
 /**
- * Questioned whether or not to make this an infix function.
- * @return The index of the specified element IF it exists inside the array,<br />or -1
+ * @return The index of the specified element if it exists inside the array, else returns -1
  */
 infix fun <T> Array<T>.indexOf(needle: T): Int {
     for (i in 0..size) {
@@ -41,7 +39,9 @@ infix fun <T> Array<T>.indexOf(needle: T): Int {
 
 
 /**
- * Shuffle the array by swapping around random values
+ * @see Math.random
+ * Shuffle an array by swapping around random values at each index.
+ *
  */
 fun <T> Array<T>.shuffle() {
 
@@ -54,9 +54,10 @@ fun <T> Array<T>.shuffle() {
 }
 
 /**
- * Choose
- *
- * @return A random item from the array.
+ * @see Math.random
+ * @see Array.size
+ * @see floor
+ * @return A random item from the array this function was called on.
  */
 fun <T> Array<T>.choose(): T {
     return this[floor(Math.random() * size).toInt()]
@@ -65,10 +66,8 @@ fun <T> Array<T>.choose(): T {
 
 //# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # NUMBER EXTENSIONS # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 /**
- * Pow
- *
  * @param amt
- * @return An integer raised to the <b>amt</b> power
+ * @return An integer raised to the *amt* power
  */
 fun Int.pow(amt: Int): Int {
     var new: Int = this
@@ -77,10 +76,9 @@ fun Int.pow(amt: Int): Int {
 }
 
 /**
- * To pretty string
- *
  * @return A String with commas to look pretty
- * 24354742 -> 24,354,742
+ *
+ * EX: # 24354742 -> 24,354,742
  */
 fun Number.toPrettyString(): String {
     var str = this.toString()

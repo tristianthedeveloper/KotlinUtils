@@ -4,7 +4,7 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
- * Vec3i
+ * Vector Class
  *
  * @property x
  * @property y
@@ -127,7 +127,7 @@ class Vec3i(var x: Int, var y: Int, var z: Int) {
 }
 
 /**
- * Vec3d
+ * Vector Class.
  *
  * @property x
  * @property y
@@ -251,7 +251,7 @@ class Vec3d(var x: Double, var y: Double, var z: Double) {
 }
 
 /**
- * Vec3f
+ * Vector Class.
  *
  * @property x
  * @property y

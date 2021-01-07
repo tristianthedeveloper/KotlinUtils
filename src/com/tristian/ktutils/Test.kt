@@ -4,12 +4,8 @@ import java.util.*
 
 
 /**
-########## TESTS ################
- */
-
-/**
- * Test Array#indexOf extension function
  * @see Array.indexOf
+ * Test [Array.indexOf] extension function
  */
 fun testArrayIndexOf() {
     var arr = arrayOf("test", "string numero dos", "string number three", "str4", "strwhat")
@@ -18,18 +14,23 @@ fun testArrayIndexOf() {
 
 
 /**
- * Test byte utilities class
- * @see ByteUtilities
- * @see ByteUtilities.pack
+ * @see unpack
+ * @see pack
+ * Test Byte Utility functions
+ * more specifically: [unpack], [pack]
  */
 fun testByteUtilities() {
     val string = "hello, world"
-    val numArray = ByteUtilities.unpack(string)
-    Assertions(ByteUtilities.pack(numArray), verbose = true) isEqualTo "hello, world"
+    val numArray = unpack(string)
+    Assertions(pack(numArray), verbose = true) isEqualTo "hello, world"
 }
 
 
+/**
+ * Main Method
+ * Runs all tests
+ */
 fun main() {
-    testArrayIndexOf()
-    testByteUtilities()
+    byteUtilitiesSample()
+
 }

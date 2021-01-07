@@ -2,7 +2,13 @@ package com.tristian.ktutils
 
 import java.lang.AssertionError
 
-class Assertions<T>(val target: T, val verbose : Boolean = false) {
+/**
+ * Simple assertions class to test against values and targets.
+ * @param T Type
+ * @property target The target to assert towards.
+ * @property verbose Whether or not to *println* the result of the tests.
+ */
+class Assertions<T>(val target: T, val verbose: Boolean = false) {
 
 
     /**
