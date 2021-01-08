@@ -31,6 +31,7 @@ fun testByteUtilities() {
  * Runs all tests
  */
 fun main() {
+
     byteUtilitiesSample()
 
 }

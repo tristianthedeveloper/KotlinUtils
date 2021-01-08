@@ -54,6 +54,55 @@ fun <T> Array<T>.shuffle() {
 }
 
 /**
+ * @see Collection
+ * @see ArrayList
+ * Pop the last element off an [ArrayList]
+ * @return The element that was removed
+ */
+fun <T> ArrayList<T>.pop(): T {
+    return this.removeAt(this.size - 1)
+}
+
+/**
+ * @see Collection
+ * @see ArrayList
+ * Append the given elements to the end of the ArrayList
+ * @param args The elements to add to the array
+ * @return The new size of the ArrayList
+ */
+fun <T> ArrayList<T>.push(vararg args: T): Int {
+    return if (this.addAll(args)) this.size else -1
+}
+
+/**
+ * Add the given items to the start of this ArrayList
+ *
+ * @param items The items to add to this ArrayList
+ */
+fun <T> ArrayList<T>.unshift(vararg items: T): Int {
+    for (item in items) {
+        add(0, item)
+    }
+    return size
+}
+
+/**
+ * @see Collection
+ * @see ArrayList
+ * @see [addAll]
+ * Used to merge two or more arrays
+ * @param other Arrays to add to this one
+ * @return The new Array, created by adding this Array + the one(s) given.
+ */
+fun <T> ArrayList<T>.concat(vararg other: Collection<T>): ArrayList<T> {
+    return this.apply {
+        other.forEach {
+            this.addAll(it)
+        }
+    }
+}
+
+/**
  * @see Math.random
  * @see Array.size
  * @see floor
@@ -81,7 +130,7 @@ fun Int.pow(amt: Int): Int {
  * EX: # 24354742 -> 24,354,742
  */
 fun Number.toPrettyString(): String {
-    var str = this.toString()
+    val str = this.toString()
     var str2 = ""
     for (i in 0..str.length) {
         if ((str.length - i) % 3 == 0) {
