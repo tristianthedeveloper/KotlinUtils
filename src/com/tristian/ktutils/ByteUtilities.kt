@@ -14,7 +14,6 @@ import java.util.stream.StreamSupport.stream
  * @param bytes
  * @return the uncompressed string.
  */
-
 fun pack(bytes: Array<Int>): String {
     var chars: CharArray = charArrayOf()
     var i = 0
@@ -47,29 +46,26 @@ fun unpack(values: String): Array<Int> {
  * @param values The values to pack.
  * @return A packed string.
  */
-fun compressBools(values: List<Boolean>): String {
-    return StringBuilder().apply {
-        values.stream().mapToInt {
-            when (it) {
-                true -> 1
-                else -> 0
-            }
-        }.boxed().forEach { append(it) }
-    }.toString()
-}
+fun compressBools(values: List<Boolean>): String = StringBuilder().apply {
+    values.stream().mapToInt {
+        when (it) {
+            true -> 1
+            else -> 0
+        }
+    }.boxed().forEach { append(it) }
+}.toString()
+
 
 /**
  * Uncompress a series of 1s and 0s inside of a string into an array of booleans
  * @sample byteUtilitiesSample
  * @return The uncompressed booleans.
  */
-fun uncompressString(values: String): List<Boolean> {
-    return arrayListOf<Boolean>().apply {
-        values.forEach {
-            this.add(when (it) {
-                '1' -> true
-                else -> false
-            })
-        }
+fun uncompressString(values: String): List<Boolean> = arrayListOf<Boolean>().apply {
+    values.forEach {
+        add(when (it) {
+            '1' -> true
+            else -> false
+        })
     }
 }

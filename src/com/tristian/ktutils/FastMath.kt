@@ -13,9 +13,8 @@ import kotlin.math.pow
  * @param d the input for the fastSqrt algorithm
  * @return a **rough** approximation of square root
  */
-fun fastSqrt(d: Double): Double {
-    return longBitsToDouble((doubleToLongBits(d) - (1L shl 52) shr 1) + (1L shl 61))
-}
+fun fastSqrt(d: Double): Double = longBitsToDouble((doubleToLongBits(d) - (1L shl 52) shr 1) + (1L shl 61))
+
 
 /**
  * A fast implementation of Math.abs() that avoids branching.
@@ -38,7 +37,7 @@ fun fastAbs(n: Long): Long {
 }
 
 /**
- * Karatsuba Multiplication Algorithm.
+ * Karatsuba Multiplication Algorithm. Not exactly fast, but it's cool :shrug:
  * @param n First Number
  * @param other Second Number
  * @return The product of the two numbers.

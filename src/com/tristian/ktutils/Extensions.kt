@@ -1,5 +1,6 @@
 package com.tristian.ktutils
 
+import org.omg.CORBA.Object
 import kotlin.math.floor
 
 
@@ -59,9 +60,8 @@ fun <T> Array<T>.shuffle() {
  * Pop the last element off an [ArrayList]
  * @return The element that was removed
  */
-fun <T> ArrayList<T>.pop(): T {
-    return this.removeAt(this.size - 1)
-}
+fun <T> ArrayList<T>.pop(): T = this.removeAt(this.size - 1)
+
 
 /**
  * @see Collection
@@ -108,9 +108,7 @@ fun <T> ArrayList<T>.concat(vararg other: Collection<T>): ArrayList<T> {
  * @see floor
  * @return A random item from the array this function was called on.
  */
-fun <T> Array<T>.choose(): T {
-    return this[floor(Math.random() * size).toInt()]
-}
+fun <T> Array<T>.choose(): T = this[floor(Math.random() * size).toInt()]
 
 
 //# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # NUMBER EXTENSIONS # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
